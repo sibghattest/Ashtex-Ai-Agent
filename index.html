@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElevenLabs AI Agent</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        footer {
+            padding: 15px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #background-video {            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.2);
+        }
+
+        .widget-container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 60px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 250px;
+            backdrop-filter: blur(10px);
+        }
+
+        .widget-container::before,
+        .widget-container::after {
+            content: '';
+            position: absolute;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .widget-container::before {
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: borderPulse 4s ease-in-out infinite;
+        }
+
+        .widget-container::after {
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        elevenlabs-convai {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes borderPulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video id="background-video" autoplay muted loop playsinline>
+        <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
+    </video>
+    
+    <header>AI Voice Assistant</header>
+    
+    <main>
+        <div class="widget-container">
+            <elevenlabs-convai agent-id="agent_01jw6w14m6ex5aasjv4ks6gvcv"></elevenlabs-convai>
+        </div>
+    </main>
+
+    <footer>© 2025 Ashtex Solutions</footer>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+</body>
+</html>
